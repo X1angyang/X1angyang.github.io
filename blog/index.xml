@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Hugo Future Imperfect Slim</title>
+    <link>https://X1angyang.github.io/blog/</link>
+    <description>Recent content in Blog on Hugo Future Imperfect Slim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://X1angyang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>爬取B站UP主的部分信息</title>
+      <link>https://X1angyang.github.io/blog/b%E7%AB%99upzhu/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/b%E7%AB%99upzhu/</guid>
+      <description>爬取网页，一般的做法是先直接向目标页面发起请求，然后返回，查看返回页面是否与目标页面相同，如果不同，则证明这个页面是动态加载页面，需要另寻它法。
+所以，我向B站发起了请求：https://space.bilibili.com/105511477
+然而，返回的页面完全没有我需要的信息，这说明B站使用了异步加载技术，于是我逐个分析请求url，在https://api.bilibili.com/x/space/acc/info?mid=105511477&amp;amp;;jsonp=jsonp这个请求的响应中发现了id号， 姓名，性别， 生日，等级等数据，但是找不到关注数，粉丝数。继续分析，在https://api.bilibili.com/x/relation/stat?vmid=105511477&amp;amp;;jsonp=jsonp&amp;amp;callback=__jp3响应中找到关注数，粉丝数等数据。但是我嫌麻烦，直接在网上找到了将这2个url合并的url：https://api.bilibili.com/x/web-interface/card?mid=105511477&amp;amp;;jsonp=jsonp&amp;amp;article=true
+直接发起请求，得到json数据，然后解析json数据就行了。由于B站数据太多，我有编写了进度保存与加载，防止重复爬取。但是爬取速度是比较慢的，改进的建议：多线程和分布式爬取。
+由于数据不全，我没有做后续分析。
+代码：
+# -*- coding: utf-8 -*- import requests import json import time # 爬取B站up主的信息，包括：id号，姓名，性别，粉丝数，关注数，等级 # 由于B站数据太多，这里不能全部爬取，建议改进：多线程， 分布式 # 包含爬取数据进度保存，可以随时爬取 def get_html(url): # 向网站发送请求，代码格式固定 headers = {&#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0&#39;} cookie = {&#39;Cookie&#39;: &amp;quot;fts=1504349387; buvid3=1C1CB246-90F7-4641-994C-875348FCC9DA31841infoc; LIVE_BUVID=923027b89ab5074df00ddeb74bd1bc4c; LIVE_PLAYER_TYPE=1; LIVE_BUVID__ckMd5=213686949aed5aa3; sid=jszx4g3e; stardustvideo=1; CURRENT_FNVAL=16; rpdid=kmwpioxopmdospssmioww; CURRENT_QUALITY=32; bp_t_offset_105511477=225519300968954321; finger=888236dc; im_notify_type_105511477=0; UM_distinctid=169200905bf184-0820062ee695d58-4c312f7f-100200-169200905c039c; DedeUserID=105511477; DedeUserID__ckMd5=e312e81cda67c220; SESSDATA=f560bc58%2C1553994772%2C44a40231; bili_jct=90910cb604d93fccf748794b4007ba13; bsource=seo_baidu; _dfcaptcha=d2c62b90ce5116dd8e1dd97aec364e73&amp;quot;} print(cookie) r = requests.get(url=url, headers=headers, cookies=cookie) r.</description>
+    </item>
+    
+    <item>
+      <title>爬取链家二手房信息</title>
+      <link>https://X1angyang.github.io/blog/ershoufang/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/ershoufang/</guid>
+      <description>前段时间在实验楼上面看到有爬取链家网租房信息，并利用高德API在地图上标注上班周边区域房源的介绍，就想着做做看。当然，我没有那么高的姿势水平，就爬一下二手房信息得了。
+准备：python，requests（url访问），lxml（html解析）， tdqm（好看的动态进度条）， re（正则），pandas（数据分析）， pyecharts（画地图）
+第一次发爬虫文章， 就详细点吧。。。。。
+一、向网站发送请求，对于一般的网站来说，这个其实是很固定的格式 向网站发送请求，得到页面信息
+当时是按照北理工的公开课学的爬虫，就延续下来用的requests，当然还有其它的。
+一些反扒网站比较严格，所以得另加一点东西，比如cookies，user-agent等等， 在这里我就换了一个请求头，让网站认为是一个浏览器而不是python在访问。
+二、第一步得到的就是html页面了，然后就可以开始解析。这里我用的是xpath，当然也有其它的解析方式，比如我最初学的时候就用的beautifulsoup，但是现在全部忘完了， 最暴力的解析方式是正则，但是必须要有很高的技术才行，因为说不定就多爬或者少爬了点东西。xpath的好处在于浏览器安装插件后可以直接复制元素的xpath路径，很方便。 抓取网页页面个数
+首先我抓取了页面总数的数字，以防在后续构建url的时候出错，这里一般都会有“下一页”这个按钮，也可以分析他的url。
+然后就是抓取需要的信息了。浏览器直接复制xpath路径，简单暴力，但是注意的是，有时候复制的xpath路径得不到目标元素，这时就要自己修改了。抓取后对部分信息提取，比如抓取的是“25415元”，提取出“25415”这种类型，等等。处理好，返回。
+抓取网页信息与处理 抓取网页信息与处理二
+三、将上面的步骤整理， 构建主函数，写入硬盘。至此，数据就全部抓取完了，遗憾的是，链家网上只有重庆9个区的二手房信息。 拼接url，利用上面的函数得到数据
+四、pandas处理下载的数据，简单求每个区的二手房价格平均值。并在地图上以热图的方式显示。由于不是一起做的，所以这里我另写了一个脚本来分析。 pandas分析和pyecharts作图
+在得到的热图中，可以看到，渝中，渝北，江北的二手房的均价是比较高的，图片看不出来具体是多少，可以到百度云盘打开html查看，里面含代码。
+下载二手房数据
+# -*- coding: utf-8 -*- import requests import re import time from lxml import etree from tqdm import tqdm def get_html(url): # 向网站发送请求，代码格式固定 headers = {&#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0&#39;} r = requests.get(url=url, headers=headers) r.raise_for_status() r.encoding = r.apparent_encoding return(r.text) def get_last_page(url): html = get_html(url) selector = etree.</description>
+    </item>
+    
+  </channel>
+</rss>
