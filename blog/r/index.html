@@ -2,12 +2,8 @@
 <html lang="en">
   <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
-<title>爬取链家二手房信息 - Hugo Future Imperfect Slim</title>
-=======
-<title>爬取链家二手房信息 - Life Is Fantastic</title>
->>>>>>> Second submmit
-<meta name="description" content="爬取重庆市部分区县的二手房信息">
+<title>Tensorflow系列（一） - Life Is Fantastic</title>
+<meta name="description" content="tensorflow 基本介绍">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -26,28 +22,28 @@
 
   <meta name="generator" content="Hugo 0.55.6" />
   
-<meta itemprop="name" content="爬取链家二手房信息">
-<meta itemprop="description" content="爬取重庆市部分区县的二手房信息">
+<meta itemprop="name" content="Tensorflow系列（一）">
+<meta itemprop="description" content="tensorflow 基本介绍">
 
 
-<meta itemprop="datePublished" content="2019-06-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-06-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="399">
+<meta itemprop="datePublished" content="2019-06-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="32">
 
 
 
 <meta itemprop="keywords" content="" />
 
-  <meta property="og:title" content="爬取链家二手房信息" />
-<meta property="og:description" content="爬取重庆市部分区县的二手房信息" />
+  <meta property="og:title" content="Tensorflow系列（一）" />
+<meta property="og:description" content="tensorflow 基本介绍" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://X1angyang.github.io/blog/ershoufang/" />
-<meta property="article:published_time" content="2019-06-02T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-06-02T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://X1angyang.github.io/blog/r/" />
+<meta property="article:published_time" content="2019-06-03T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-06-03T00:00:00&#43;00:00"/>
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="爬取链家二手房信息"/>
-<meta name="twitter:description" content="爬取重庆市部分区县的二手房信息"/>
+<meta name="twitter:title" content="Tensorflow系列（一）"/>
+<meta name="twitter:description" content="tensorflow 基本介绍"/>
 
   
 
@@ -109,13 +105,10 @@
     
       
     
-<<<<<<< HEAD
-=======
       
         <a href="/fr" lang="fr" class="no-lang"><span class="flag-icon flag-icon-fr" alt="fr"></span></a>
       
     
->>>>>>> Second submmit
   
 </menu>
 
@@ -236,19 +229,19 @@
   <header>
   <div class="title">
     
-        <h2><a href="/blog/ershoufang/">爬取链家二手房信息</a></h2>
+        <h2><a href="/blog/r/">Tensorflow系列（一）</a></h2>
     
     
-        <p>爬取重庆市部分区县的二手房信息</p>
+        <p>tensorflow 基本介绍</p>
     
 </div>
   <div class="meta">
-    <time class="published" datetime="2019-06-02 00:00:00 &#43;0000 UTC">
-      June 2, 2019
+    <time class="published" datetime="2019-06-03 00:00:00 &#43;0000 UTC">
+      June 3, 2019
     </time>
     <span class="author">Xiang.Y</span>
     
-        <p>2 minute read</p>
+        <p>1 minute read</p>
     
   </div>
 </header>
@@ -303,158 +296,52 @@
 
   </section>
   
-<a href="/blog/ershoufang/" class="image featured">
-  <img src="/img/2019/06/ershoufang.jpg" alt="Pic 1">
+<a href="/blog/r/" class="image featured">
+  <img src="/img/2019/06/tensorflow.jpg" alt="Pic 1">
 </a>
 
 
   <div class="content">
-    <p>前段时间在实验楼上面看到有爬取链家网租房信息，并利用高德API在地图上标注上班周边区域房源的介绍，就想着做做看。当然，我没有那么高的姿势水平，就爬一下二手房信息得了。</p>
+    <p>介绍：</p>
 
-<p>准备：python，requests（url访问），lxml（html解析）， tdqm（好看的动态进度条）， re（正则），pandas（数据分析）， pyecharts（画地图）</p>
+<p>人工神经网络是一种比较优越的分类方法，模拟了神经元的信息传递。虽然咋一听觉得人工神经网络或者人工智能，或者深度学习这些字眼很高大上，离我们很遥远，但是入门理解起来还是很容易的，难的是如任何一门知识一般的深入。
+<img src="/img/2019/06article/tensorflow1.png" alt="" /></p>
 
-<p>第一次发爬虫文章， 就详细点吧。。。。。</p>
+<p>y = [x1 x2] * <a href="对应相乘">w1 w2</a>,在实际的神经网络中还会让相乘的结果加上偏置b，再经过激活函数，这样一层神经网络就计算结束了，当然，在实际的网络中， 可能会有很多层， 而每层又会有很多个节点。在整个网络经过：乘积求和，加偏置，过激活函数后，前向传播就结束了。接下来的是反向传播。这里涉及的公式很难懂，就不赘述，记住反向传播的功能：经过反向传播，来调整参数w的值。在tensorflow中，反向传播是不需要我们操心的，只需要一句代码就搞定了。</p>
 
-<p>一、向网站发送请求，对于一般的网站来说，这个其实是很固定的格式
-向网站发送请求，得到页面信息</p>
+<p>神经网络的主体步骤大概就是这样，反复地前向，反向计算，直到训练的w能够让计算的结果和实际的结果最接近为止。</p>
 
-<p>当时是按照北理工的公开课学的爬虫，就延续下来用的requests，当然还有其它的。</p>
+<p>tensorflow：</p>
 
-<p>一些反扒网站比较严格，所以得另加一点东西，比如cookies，user-agent等等， 在这里我就换了一个请求头，让网站认为是一个浏览器而不是python在访问。</p>
+<p>tensorflow使用的数据称作张量，表示多维数组</p>
 
-<p>二、第一步得到的就是html页面了，然后就可以开始解析。这里我用的是xpath，当然也有其它的解析方式，比如我最初学的时候就用的beautifulsoup，但是现在全部忘完了， 最暴力的解析方式是正则，但是必须要有很高的技术才行，因为说不定就多爬或者少爬了点东西。xpath的好处在于浏览器安装插件后可以直接复制元素的xpath路径，很方便。
-抓取网页页面个数</p>
+<p>计算图，tensorflow在计算图中搭建前向，反向传播结构，但是在计算图中不使用数据计算。就好比，我们在计算图中搭建了城市的电路分配的具体线路，而不通电。</p>
 
-<p>首先我抓取了页面总数的数字，以防在后续构建url的时候出错，这里一般都会有“下一页”这个按钮，也可以分析他的url。</p>
+<p>会话， tensorflow在会话中传入数据，通过搭建好的计算图训练神经网络，这里就相当于通电正式使用了。</p>
 
-<p>然后就是抓取需要的信息了。浏览器直接复制xpath路径，简单暴力，但是注意的是，有时候复制的xpath路径得不到目标元素，这时就要自己修改了。抓取后对部分信息提取，比如抓取的是“25415元”，提取出“25415”这种类型，等等。处理好，返回。</p>
+<p>下面介绍几个经常用的函数：</p>
 
-<p>抓取网页信息与处理
-抓取网页信息与处理二</p>
+<p>import tensorflow as tf</p>
 
-<p>三、将上面的步骤整理， 构建主函数，写入硬盘。至此，数据就全部抓取完了，遗憾的是，链家网上只有重庆9个区的二手房信息。
-拼接url，利用上面的函数得到数据</p>
+<p>下面全都以tf表示</p>
 
-<p>四、pandas处理下载的数据，简单求每个区的二手房价格平均值。并在地图上以热图的方式显示。由于不是一起做的，所以这里我另写了一个脚本来分析。
-pandas分析和pyecharts作图</p>
+<p>tf.Variable()：表示变量，我们在初始话参数w的时候会用到</p>
 
-<p>在得到的热图中，可以看到，渝中，渝北，江北的二手房的均价是比较高的，图片看不出来具体是多少，可以到百度云盘打开html查看，里面含代码。</p>
+<p>tf.matmul()：矩阵相乘，在搭建前向传播网络的时候会用到</p>
 
-<p>下载二手房数据</p>
+<p>tf.nn.relu()：激活函数的一种，矩阵相乘的结果一般会经过激活函数（最后一层节点不用）</p>
 
-<pre><code class="language-javascript"># -*- coding: utf-8 -*-
-import requests
-import re
-import time
-from lxml import etree
-from tqdm import tqdm
+<p>tf.placeholder()：占位，在搭建网络的时候，我们传入的不是具体的多少维的数据，需要用它来给传入数据占位</p>
 
+<p>tf.reduce_mean(tf.square(计算的结果和实际的距离))：表示损失函数，这是最基本的</p>
 
-def get_html(url): # 向网站发送请求，代码格式固定
-	headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
-	r = requests.get(url=url, headers=headers)
-	r.raise_for_status()
-	r.encoding = r.apparent_encoding
-	return(r.text)
+<p>tf.train.GradientDescentOptimizer（）.minimize()：反向传播的一种方法，梯度下降，令损失值最小，当然还有其它的方法</p>
 
-def get_last_page(url):
-	html = get_html(url)
-	selector = etree.HTML(html)
-	num_info = selector.xpath('/html/body/div[4]/div[1]/div[8]/div[2]/div/@page-data')
-	num = re.search(&quot;\d+&quot;, num_info[0]).group()
-	return(int(num))
-	
-def get_information(url): # 得到网页信息，并解析
-	html = get_html(url)
-	selector = etree.HTML(html) # xpath解析方式
-	# 得到想要的信息
-	house_title = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[1]/a/text()')
-	house_loupan = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[2]/div/a/text()')
-	house_informations = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[2]/div/text()')
-	house_floors = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[3]/div/text()')
-	house_loction = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[3]/div/a/text()')
-	house_price = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[6]/div[1]/span/text()')
-	house_per_price = selector.xpath('/html/body/div[4]/div[1]/ul/li/div[1]/div[6]/div[2]/span/text()')
-	# 对得到的信息做进一步处理
-	# 处理一， 对房子信息拆解
-	house_informations_list = []
-	for house_info in house_informations:
-		house_infos = house_info.split(&quot;|&quot;)
-		if (len(house_infos) != 6):
-			house_infos.append(&quot;-&quot;) # 部分没有列出电梯信息
-		squre = re.search(&quot;[^\u4e00-\u9fa5]+&quot;, house_infos[2]).group()
-		house_infos[2] = squre
-		if len(house_infos) != 6:
-			house_informations_list.append([&quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;])
-		else:
-			house_informations_list.append(house_infos)
-	# 处理二，房子单价提取
-	house_per_prices = []
-	for house_per in house_per_price:
-		new_house_per = re.search(&quot;\d+&quot;, house_per).group()
-		house_per_prices.append(new_house_per)
-	
-	# 整理每一个元素，返回
-	house_all_information = []
+<p>tf.global_variables_initializer()：变量的初始化，这是在会话中必须的</p>
 
-	print(house_informations)
+<p>tf.Session().run()：会话中的最重要的函数，表示计算特定的参数。</p>
 
-	for i in range(len(house_title)):
-		house_all_information.append(house_loction[i] + &quot;\t&quot; + house_title[i] + &quot;\t&quot; + house_loupan[i] + &quot;\t&quot; + house_informations_list[i][1] + &quot;\t&quot; + house_informations_list[i][2] + &quot;\t&quot; + house_informations_list[i][3] + &quot;\t&quot; + house_informations_list[i][4] + &quot;\t&quot; + house_informations_list[i][5] + &quot;\t&quot; + house_floors[i] + &quot;\t&quot; + house_per_prices[i] + &quot;\t&quot; + house_price[i])
-	return(house_all_information)
-
-# 原始url， 并拼接
-raw_url = &quot;https://km.lianjia.com/ershoufang/&quot;
-citys = [&quot;wuhua&quot;]
-for city in citys:
-	first_url = raw_url + city + &quot;/pg1&quot;
-	num = get_last_page(first_url)
-	raw_url1 = raw_url + city + &quot;/pg&quot;
-	urls = []
-	for i in range(num): # 
-		urls.append(raw_url1 + str(i + 1))
-# 写入文件house_information.txt
-	f = open(&quot;C:\\Users\\Lenovo\\Desktop\\python\\lianjia\\&quot; + city + &quot;_house_information.txt&quot;, &quot;a&quot;, encoding='utf-8')
-	f.write(&quot;位置\t&quot; + &quot;标题\t&quot; + &quot;楼盘\t&quot; + &quot;厅室\t&quot; + &quot;面积(m2)\t&quot; + &quot;朝向\t&quot; + &quot;类型\t&quot; + &quot;电梯\t&quot; + &quot;楼层\t&quot; + &quot;单价(元)\t&quot; + &quot;总价(万元)\t\n&quot;)
-	print(&quot;开始爬取&quot; + city + &quot;的二手房信息。&quot;)
-	for url in tqdm(urls, leave=False):
-		house_all_information = get_information(url)
-		for i in house_all_information:
-			f.write(i+&quot;\n&quot;)
-		time.sleep(1)
-	f.close()
-print(&quot;Successfully download the information!&quot;)
-f.close()
-
-
-</code></pre>
-
-<p>地图可视化</p>
-
-<pre><code class="language-javascript"># -*- coding: utf-8 -*-
-
-import pandas as pd
-from pyecharts import Map
-
-cities = [&quot;jiangbei&quot;, &quot;yubei&quot;, &quot;yuzhong&quot;, &quot;nanan&quot;, &quot;banan&quot;, &quot;jiulongpo&quot;, &quot;shapingba&quot;, &quot;dadukou&quot;, &quot;jiangjing&quot;]
-
-def get_average_price(city):
-	data = pd.read_table(&quot;C:\\Users\\Lenovo\\Desktop\\lianjia\\data\\%s_house_information.txt&quot;%city,sep=&quot;\t&quot;, header=0)
-	average_price = data[&quot;单价(元)&quot;].mean()
-	return(average_price)
-
-average_prices = []
-for city in cities:
-	average_price = get_average_price(city)
-	average_prices.append(average_price)
-
-
-attr = ['江北区', '渝北区', '渝中区', '南岸区', '巴南区', '九龙坡区', '沙坪坝区', '大渡口区', '江津区']
-map = Map(&quot;重庆部分市区二手房价格&quot;,width=1200,height=600)
-map.add(&quot;&quot;, attr, average_prices, maptype='重庆', visual_range=[min(average_prices) - 100, max(average_prices ) + 100], is_visualmap=True,visual_text_color='#000')
-map.render(&quot;map.html&quot;)
-
-</code></pre>
+<p>上面差不多就是搭建一个最基本的神经网络中的最重要的函数了。今天先介绍这些，下回上一个简单全连接神经网络的代码。</p>
 
   </div>
   <footer>
@@ -469,7 +356,7 @@ map.render(&quot;map.html&quot;)
             <li><a class="article-category-link" href="https://X1angyang.github.io/categories/python">Python</a></li>
           
             
-            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB">爬虫</a></li>
+            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/tensorflow">tensorflow</a></li>
           
         </ul>
       </li>
@@ -492,8 +379,8 @@ map.render(&quot;map.html&quot;)
 </article>
 <div class="pagination">
   
+    <a href="/blog/b%E7%AB%99upzhu/" class="button big previous"><i class="fas fa-angle-left"></i> 爬取B站UP主的部分信息</a>
   
-    <a href="/blog/b%E7%AB%99upzhu/" class="button big next">爬取B站UP主的部分信息 <i class="fas fa-angle-right"></i></a>
   
 </div>
 
@@ -508,8 +395,6 @@ map.render(&quot;map.html&quot;)
     <article class="mini-post">
       <section>
         
-<<<<<<< HEAD
-=======
 <a href="/blog/r/" class="image featured">
   <img src="/img/2019/06/tensorflow.jpg" alt="Pic 1">
 </a>
@@ -525,7 +410,6 @@ map.render(&quot;map.html&quot;)
     <article class="mini-post">
       <section>
         
->>>>>>> Second submmit
 <a href="/blog/b%E7%AB%99upzhu/" class="image featured">
   <img src="/img/2019/06/bilibili.jpg" alt="Pic 1">
 </a>
@@ -569,11 +453,7 @@ map.render(&quot;map.html&quot;)
           
           <li>
             
-<<<<<<< HEAD
-              <a href="/categories/python/">python<span class="count">2</span></a>
-=======
               <a href="/categories/python/">python<span class="count">3</span></a>
->>>>>>> Second submmit
             
           
           <li>
@@ -581,14 +461,11 @@ map.render(&quot;map.html&quot;)
               <a href="/categories/%E7%88%AC%E8%99%AB/">爬虫<span class="count">2</span></a>
             
           
-<<<<<<< HEAD
-=======
           <li>
             
               <a href="/categories/tensorflow/">tensorflow<span class="count">1</span></a>
             
           
->>>>>>> Second submmit
           </li>
         </ul>
       </section>
@@ -656,11 +533,7 @@ map.render(&quot;map.html&quot;)
     
       &copy; 2019
       
-<<<<<<< HEAD
-        Hugo Future Imperfect Slim
-=======
         Life Is Fantastic
->>>>>>> Second submmit
       
     .
     Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
