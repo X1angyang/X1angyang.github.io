@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-    <title>爬虫 on Hugo Future Imperfect Slim</title>
-    <link>https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB/</link>
-    <description>Recent content in 爬虫 on Hugo Future Imperfect Slim</description>
-    <generator>Hugo -- gohugo.io</generator>
-=======
     <title>爬虫 on Life Is Fantastic</title>
     <link>https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB/</link>
     <description>Recent content in 爬虫 on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
->>>>>>> Second submmit
     <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-    <title>Xiang.Y&#39;s Blog on Hugo Future Imperfect Slim</title>
-    <link>https://X1angyang.github.io/about/</link>
-    <description>Recent content in Xiang.Y&#39;s Blog on Hugo Future Imperfect Slim</description>
-    <generator>Hugo -- gohugo.io</generator>
-=======
     <title>Xiang.Y&#39;s Blog on Life Is Fantastic</title>
     <link>https://X1angyang.github.io/about/</link>
     <description>Recent content in Xiang.Y&#39;s Blog on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
->>>>>>> Second submmit
     <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/about/index.xml" rel="self" type="application/rss+xml" />
@@ -31,21 +24,5 @@ Ustawiać Kilka ciekawych faktów na temat Hugo:
  Wbudowany Go Luźno zainspirowany przez Jekyll Głównie opracowany przez spf13 w pociągu podczas podróży do iz Manhattanu. Zakodowane w Vim przy użyciu spf13-vim  Masz pytania lub sugestie? Zapraszam do otwarcia problemu na GitHub lub zapytaj mnie na Twitterze.</description>
     </item>
     
-<<<<<<< HEAD
-    <item>
-      <title>À propos de Hugo</title>
-      <link>https://X1angyang.github.io/about/_index.fr/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://X1angyang.github.io/about/_index.fr/</guid>
-      <description>Hugo est un moteur de site statique écrit en Go.
-Il utilise une variété de projets open source, notamment:
- Cobra Viper J Walter Weatherman Cast  En savoir plus et contribuer sur GitHub.
-Installer Quelques faits amusants sur Hugo:
- Construit en Go Librement inspiré par Jekyll Principalement développé par spf13 dans le train lors d&amp;rsquo;un trajet aller-retour pour Manhattan. Codé dans Vim en utilisant spf13-vim  Vous avez des questions ou des suggestions?</description>
-    </item>
-    
-=======
->>>>>>> Second submmit
   </channel>
 </rss>
