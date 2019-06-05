@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tensorflow on Life Is Fantastic</title>
+    <link>https://X1angyang.github.io/categories/tensorflow/</link>
+    <description>Recent content in tensorflow on Life Is Fantastic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://X1angyang.github.io/categories/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tensorflow系列（二）</title>
+      <link>https://X1angyang.github.io/blog/tensorflow2/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/tensorflow2/</guid>
+      <description>如图，模拟的数据：在半径为根号2的圆内的点为红色，圆外的点为蓝色，那么，我想要让神经网络试试能不能将这两类数据分开，随机输入一个点，而预测它的颜色
+实验需求：python, tensorflow, numpy, random, matplotlib
+本次实验参考中国大学mooc
+代码分为两个部分，前向传播网络的构建和反向传播网络参数训练。前向传播文件中有：生成参数w和b的函数，自己构建前向传播网络函数，具体代码有很详细的注释。百度云盘文末附上。经过前向传播，我们会得到网络训练的值。然后再反向传播中，令真实值与训练值的距离为loss，在梯度下降法中，经过20000轮的迭代，让loss不断减小，从而训练出w和b。最后向神经网络喂入密集点阵，得到大量值，以0.5为分界线，画出分类界限。得到下图： 可以看到，训练的分类界限基本上是一个以根号2为半径的圆，模型不错。
+前向传播：
+# coding:utf-8 import tensorflow as tf Input_size = 2 # 输入节点层大小 Node_size = 20 # 中间层节点大小 Output_size = 1 # 输出节点层大小 def get_weight(shape, regularizer): # 获取参数w的函数 w = tf.Variable(tf.truncated_normal(shape, stddev=0.1)) # 随机赋值给w if regularizer is not None: tf.add_to_collection(&amp;quot;losses&amp;quot;, tf.contrib.layers.l2_regularizer(regularizer)(w)) return w def get_b(shape): # 获取偏置b的函数 b = tf.b = tf.Variable(tf.zeros(shape)) # 统一将 bias 初始化为 0 return b def forward(x, regularizer): # 构建前向传播框架 w1 = get_weight([Input_size, Node_size], regularizer) # 获取参数w1 b1 = get_b([Node_size]) # 获取参数b1 y1 = tf.</description>
+    </item>
+    
+    <item>
+      <title>Tensorflow系列（一）</title>
+      <link>https://X1angyang.github.io/blog/r/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/r/</guid>
+      <description>介绍：
+人工神经网络是一种比较优越的分类方法，模拟了神经元的信息传递。虽然咋一听觉得人工神经网络或者人工智能，或者深度学习这些字眼很高大上，离我们很遥远，但是入门理解起来还是很容易的，难的是如任何一门知识一般的深入。 y = [x1 x2] * w1 w2,在实际的神经网络中还会让相乘的结果加上偏置b，再经过激活函数，这样一层神经网络就计算结束了，当然，在实际的网络中， 可能会有很多层， 而每层又会有很多个节点。在整个网络经过：乘积求和，加偏置，过激活函数后，前向传播就结束了。接下来的是反向传播。这里涉及的公式很难懂，就不赘述，记住反向传播的功能：经过反向传播，来调整参数w的值。在tensorflow中，反向传播是不需要我们操心的，只需要一句代码就搞定了。
+神经网络的主体步骤大概就是这样，反复地前向，反向计算，直到训练的w能够让计算的结果和实际的结果最接近为止。
+tensorflow：
+tensorflow使用的数据称作张量，表示多维数组
+计算图，tensorflow在计算图中搭建前向，反向传播结构，但是在计算图中不使用数据计算。就好比，我们在计算图中搭建了城市的电路分配的具体线路，而不通电。
+会话， tensorflow在会话中传入数据，通过搭建好的计算图训练神经网络，这里就相当于通电正式使用了。
+下面介绍几个经常用的函数：
+import tensorflow as tf
+下面全都以tf表示
+tf.Variable()：表示变量，我们在初始话参数w的时候会用到
+tf.matmul()：矩阵相乘，在搭建前向传播网络的时候会用到
+tf.nn.relu()：激活函数的一种，矩阵相乘的结果一般会经过激活函数（最后一层节点不用）
+tf.placeholder()：占位，在搭建网络的时候，我们传入的不是具体的多少维的数据，需要用它来给传入数据占位
+tf.reduce_mean(tf.square(计算的结果和实际的距离))：表示损失函数，这是最基本的
+tf.train.GradientDescentOptimizer（）.minimize()：反向传播的一种方法，梯度下降，令损失值最小，当然还有其它的方法
+tf.global_variables_initializer()：变量的初始化，这是在会话中必须的
+tf.Session().run()：会话中的最重要的函数，表示计算特定的参数。
+上面差不多就是搭建一个最基本的神经网络中的最重要的函数了。今天先介绍这些，下回上一个简单全连接神经网络的代码。</description>
+    </item>
+    
+  </channel>
+</rss>
