@@ -4,13 +4,13 @@
   
   <url>
     <loc>https://X1angyang.github.io/blog/</loc>
-    <lastmod>2019-06-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://X1angyang.github.io/categories/</loc>
-    <lastmod>2019-06-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -26,7 +26,7 @@
   
   <url>
     <loc>https://X1angyang.github.io/</loc>
-    <lastmod>2019-06-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -42,19 +42,24 @@
   
   <url>
     <loc>https://X1angyang.github.io/categories/python/</loc>
-    <lastmod>2019-06-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/blog/tensorflow2/</loc>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/categories/tensorflow/</loc>
+    <lastmod>2019-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://X1angyang.github.io/blog/r/</loc>
     <lastmod>2019-06-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://X1angyang.github.io/categories/tensorflow/</loc>
-    <lastmod>2019-06-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

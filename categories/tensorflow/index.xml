@@ -6,10 +6,24 @@
     <description>Recent content in tensorflow on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/categories/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow系列（二）</title>
+      <link>https://X1angyang.github.io/blog/tensorflow2/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/tensorflow2/</guid>
+      <description>如图，模拟的数据：在半径为根号2的圆内的点为红色，圆外的点为蓝色，那么，我想要让神经网络试试能不能将这两类数据分开，随机输入一个点，而预测它的颜色
+实验需求：python, tensorflow, numpy, random, matplotlib
+本次实验参考中国大学mooc
+代码分为两个部分，前向传播网络的构建和反向传播网络参数训练。前向传播文件中有：生成参数w和b的函数，自己构建前向传播网络函数，具体代码有很详细的注释。百度云盘文末附上。经过前向传播，我们会得到网络训练的值。然后再反向传播中，令真实值与训练值的距离为loss，在梯度下降法中，经过20000轮的迭代，让loss不断减小，从而训练出w和b。最后向神经网络喂入密集点阵，得到大量值，以0.5为分界线，画出分类界限。得到下图： 可以看到，训练的分类界限基本上是一个以根号2为半径的圆，模型不错。
+前向传播：
+# coding:utf-8 import tensorflow as tf Input_size = 2 # 输入节点层大小 Node_size = 20 # 中间层节点大小 Output_size = 1 # 输出节点层大小 def get_weight(shape, regularizer): # 获取参数w的函数 w = tf.Variable(tf.truncated_normal(shape, stddev=0.1)) # 随机赋值给w if regularizer is not None: tf.add_to_collection(&amp;quot;losses&amp;quot;, tf.contrib.layers.l2_regularizer(regularizer)(w)) return w def get_b(shape): # 获取偏置b的函数 b = tf.b = tf.Variable(tf.zeros(shape)) # 统一将 bias 初始化为 0 return b def forward(x, regularizer): # 构建前向传播框架 w1 = get_weight([Input_size, Node_size], regularizer) # 获取参数w1 b1 = get_b([Node_size]) # 获取参数b1 y1 = tf.</description>
+    </item>
     
     <item>
       <title>Tensorflow系列（一）</title>

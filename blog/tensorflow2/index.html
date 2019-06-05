@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
   <meta charset="utf-8">
-<title>爬取B站UP主的部分信息 - Life Is Fantastic</title>
-<meta name="description" content="爬取B站UP主信息">
+<title>Tensorflow系列（二） - Life Is Fantastic</title>
+<meta name="description" content="简单的全连接实践">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -22,28 +22,28 @@
 
   <meta name="generator" content="Hugo 0.55.6" />
   
-<meta itemprop="name" content="爬取B站UP主的部分信息">
-<meta itemprop="description" content="爬取B站UP主信息">
+<meta itemprop="name" content="Tensorflow系列（二）">
+<meta itemprop="description" content="简单的全连接实践">
 
 
-<meta itemprop="datePublished" content="2019-06-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-06-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="229">
+<meta itemprop="datePublished" content="2019-06-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="431">
 
 
 
 <meta itemprop="keywords" content="" />
 
-  <meta property="og:title" content="爬取B站UP主的部分信息" />
-<meta property="og:description" content="爬取B站UP主信息" />
+  <meta property="og:title" content="Tensorflow系列（二）" />
+<meta property="og:description" content="简单的全连接实践" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://X1angyang.github.io/blog/b%E7%AB%99upzhu/" />
-<meta property="article:published_time" content="2019-06-02T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-06-02T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://X1angyang.github.io/blog/tensorflow2/" />
+<meta property="article:published_time" content="2019-06-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-06-05T00:00:00&#43;00:00"/>
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="爬取B站UP主的部分信息"/>
-<meta name="twitter:description" content="爬取B站UP主信息"/>
+<meta name="twitter:title" content="Tensorflow系列（二）"/>
+<meta name="twitter:description" content="简单的全连接实践"/>
 
   
 
@@ -229,19 +229,19 @@
   <header>
   <div class="title">
     
-        <h2><a href="/blog/b%E7%AB%99upzhu/">爬取B站UP主的部分信息</a></h2>
+        <h2><a href="/blog/tensorflow2/">Tensorflow系列（二）</a></h2>
     
     
-        <p>爬取B站UP主信息</p>
+        <p>简单的全连接实践</p>
     
 </div>
   <div class="meta">
-    <time class="published" datetime="2019-06-02 00:00:00 &#43;0000 UTC">
-      June 2, 2019
+    <time class="published" datetime="2019-06-05 00:00:00 &#43;0000 UTC">
+      June 5, 2019
     </time>
     <span class="author">Xiang.Y</span>
     
-        <p>2 minute read</p>
+        <p>3 minute read</p>
     
   </div>
 </header>
@@ -296,83 +296,139 @@
 
   </section>
   
-<a href="/blog/b%E7%AB%99upzhu/" class="image featured">
-  <img src="/img/2019/06/bilibili.jpg" alt="Pic 1">
+<a href="/blog/tensorflow2/" class="image featured">
+  <img src="/img/2019/06/tensorflow.jpg" alt="Pic 1">
 </a>
 
 
   <div class="content">
-    <p>爬取网页，一般的做法是先直接向目标页面发起请求，然后返回，查看返回页面是否与目标页面相同，如果不同，则证明这个页面是动态加载页面，需要另寻它法。</p>
+    <p>如图，模拟的数据：在半径为根号2的圆内的点为红色，圆外的点为蓝色，那么，我想要让神经网络试试能不能将这两类数据分开，随机输入一个点，而预测它的颜色</p>
 
-<p>所以，我向B站发起了请求：<a href="https://space.bilibili.com/105511477">https://space.bilibili.com/105511477</a></p>
+<p>实验需求：python, tensorflow, numpy, random, matplotlib</p>
 
-<p>然而，返回的页面完全没有我需要的信息，这说明B站使用了异步加载技术，于是我逐个分析请求url，在<a href="https://api.bilibili.com/x/space/acc/info?mid=105511477&amp;;jsonp=jsonp这个请求的响应中发现了id号，">https://api.bilibili.com/x/space/acc/info?mid=105511477&amp;;jsonp=jsonp这个请求的响应中发现了id号，</a> 姓名，性别， 生日，等级等数据，但是找不到关注数，粉丝数。继续分析，在<a href="https://api.bilibili.com/x/relation/stat?vmid=105511477&amp;;jsonp=jsonp&amp;callback=__jp3响应中找到关注数，粉丝数等数据。但是我嫌麻烦，直接在网上找到了将这2个url合并的url：https://api.bilibili.com/x/web-interface/card?mid=105511477&amp;;jsonp=jsonp&amp;article=true">https://api.bilibili.com/x/relation/stat?vmid=105511477&amp;;jsonp=jsonp&amp;callback=__jp3响应中找到关注数，粉丝数等数据。但是我嫌麻烦，直接在网上找到了将这2个url合并的url：https://api.bilibili.com/x/web-interface/card?mid=105511477&amp;;jsonp=jsonp&amp;article=true</a></p>
+<p>本次实验参考中国大学mooc</p>
 
-<p>直接发起请求，得到json数据，然后解析json数据就行了。由于B站数据太多，我有编写了进度保存与加载，防止重复爬取。但是爬取速度是比较慢的，改进的建议：多线程和分布式爬取。</p>
+<p>代码分为两个部分，前向传播网络的构建和反向传播网络参数训练。前向传播文件中有：生成参数w和b的函数，自己构建前向传播网络函数，具体代码有很详细的注释。百度云盘文末附上。经过前向传播，我们会得到网络训练的值。然后再反向传播中，令真实值与训练值的距离为loss，在梯度下降法中，经过20000轮的迭代，让loss不断减小，从而训练出w和b。最后向神经网络喂入密集点阵，得到大量值，以0.5为分界线，画出分类界限。得到下图：
+<img src="./img/2019/06article/tensorflow21.png" alt="随机生成的数据" />
+<img src="./img/2019/06article/tensorflow22.png" alt="找到的分界线" />
+可以看到，训练的分类界限基本上是一个以根号2为半径的圆，模型不错。</p>
 
-<p>由于数据不全，我没有做后续分析。</p>
+<p>前向传播：</p>
 
-<p>代码：</p>
+<pre><code class="language-javascript"># coding:utf-8
+import tensorflow as tf
+Input_size = 2  # 输入节点层大小
+Node_size = 20  # 中间层节点大小
+Output_size = 1  # 输出节点层大小
+ 
+ 
+def get_weight(shape, regularizer):  # 获取参数w的函数
+    w = tf.Variable(tf.truncated_normal(shape, stddev=0.1))  # 随机赋值给w
+    if regularizer is not None:
+        tf.add_to_collection(&quot;losses&quot;, tf.contrib.layers.l2_regularizer(regularizer)(w))
+    return w
+ 
+ 
+def get_b(shape):  # 获取偏置b的函数
+    b = tf.b = tf.Variable(tf.zeros(shape))  # 统一将 bias 初始化为 0
+    return b
+ 
+ 
+def forward(x, regularizer):  # 构建前向传播框架
+    w1 = get_weight([Input_size, Node_size], regularizer)  # 获取参数w1
+    b1 = get_b([Node_size])  # 获取参数b1
+    y1 = tf.nn.relu(tf.matmul(x, w1) + b1)  # 计算，加上偏置b1， 并且经过激活函数
+ 
+    w2 = get_weight([Node_size, Output_size], regularizer)
+    b2 = get_b([Output_size])
+    y = tf.matmul(y1, w2) + b2  # 注意，输出层一般不经过激活函数
+    return y
+</code></pre>
 
-<pre><code class="language-javascript"># -*- coding: utf-8 -*-
-import requests
-import json
-import time
+<p>反向传播：</p>
 
-# 爬取B站up主的信息，包括：id号，姓名，性别，粉丝数，关注数，等级
-# 由于B站数据太多，这里不能全部爬取，建议改进：多线程， 分布式
-# 包含爬取数据进度保存，可以随时爬取
-
-
-def get_html(url):  # 向网站发送请求，代码格式固定
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0'}
-    cookie = {'Cookie': &quot;fts=1504349387; buvid3=1C1CB246-90F7-4641-994C-875348FCC9DA31841infoc; LIVE_BUVID=923027b89ab5074df00ddeb74bd1bc4c; LIVE_PLAYER_TYPE=1; LIVE_BUVID__ckMd5=213686949aed5aa3; sid=jszx4g3e; stardustvideo=1; CURRENT_FNVAL=16; rpdid=kmwpioxopmdospssmioww; CURRENT_QUALITY=32; bp_t_offset_105511477=225519300968954321; finger=888236dc; im_notify_type_105511477=0; UM_distinctid=169200905bf184-0820062ee695d58-4c312f7f-100200-169200905c039c; DedeUserID=105511477; DedeUserID__ckMd5=e312e81cda67c220; SESSDATA=f560bc58%2C1553994772%2C44a40231; bili_jct=90910cb604d93fccf748794b4007ba13; bsource=seo_baidu; _dfcaptcha=d2c62b90ce5116dd8e1dd97aec364e73&quot;}
-    print(cookie)
-    r = requests.get(url=url, headers=headers, cookies=cookie)
-    r.raise_for_status()
-    r.encoding = r.apparent_encoding
-    return r.content.decode()
-
-
-def get_information(url):  # 得到页面信息
-    html = get_html(url)  # 得到json
-    value = json.loads(html)  # 加载json
-    flag = True  # flag，判断是否有这个页面
-    mid = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;mid&quot;)  # json得到mid号
-    name = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;name&quot;)
-    sex = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;sex&quot;)
-    fans = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;fans&quot;)
-    attention = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;attention&quot;)
-    level = value.get(&quot;data&quot;).get(&quot;card&quot;).get(&quot;level_info&quot;).get(&quot;current_level&quot;)
-    if mid == &quot;&quot;:  # mid号为空，则没有这个用户
-        flag = False
-    return flag, mid, name, sex, fans, attention, level  # 返回信息
-
-
-with open(&quot;test.txt&quot;, &quot;a+&quot;, encoding=&quot;utf-8&quot;) as f, open(&quot;save.txt&quot;, &quot;r+&quot;) as f1:
-    start = int(f1.readline().strip().split(&quot;_&quot;)[-1])  # 加载保存的进度
-    if start == 0:
-        f.write(&quot;mid\tname\tsex\tfans\tattention\tlevel\n&quot;)  # 如果没有进度，则写出题头
-    for i in range(start, 100000000):
-        mid = i + 1
-        # 生成url
-        url = &quot;https://api.bilibili.com/x/web-interface/card?mid=%d&amp;jsonp=jsonp&amp;article=true&quot; % mid
-        flag, mid, name, sex, fans, attention, level = get_information(url)  # 得到数据
-        if flag:
-            # 写出数据
-            f.write(str(mid) + &quot;\t&quot; + name + &quot;\t&quot; + sex + &quot;\t&quot; + str(fans) + &quot;\t&quot; +
-                    str(attention) + &quot;\t&quot; + str(level) + &quot;\n&quot;)
-        if i % 100 == 0:  # 每100轮保存进度
-            f1.write(&quot;_&quot; + mid)
-            f.flush()
-            f1.flush()
-            print(i)
-        time.sleep(0.1)  # 每次爬取后休息0.1秒
-
-
-
-
-
+<pre><code class="language-javascript"># coding:utf-8
+import tensorflow as tf
+import numpy as np
+import random
+import bilibili_test1.bilibili_forward as fw
+import matplotlib.pyplot as plt
+Learning_rate_base = 0.1  # 学习率
+Learning_rate_decay = 0.99  # 学习率衰减率
+Moving_average_decay = 0.99  # 滑动平均
+Regularizer = 0.0001  # 正则化
+Seed = 2  # 初始化数据的随机种子
+Batch_size = 30  # 一次喂入多少组数据
+Steps = 100000  # 训练的轮数
+ 
+ 
+def generate_data():  # 生成数据的函数
+    rdm = np.random.RandomState(Seed)
+    X = rdm.randn(300, 2)  # 生成300*2的矩阵
+    Y_ = [int(x0 * x0 + x1 * x1 &lt; 2) for (x0, x1) in X]  # 标签，在半径为根号2的圆内的点标签为1，圆外为0
+    Y_c = [&quot;red&quot; if y else &quot;blue&quot; for y in Y_]  # 颜色，圆内为红色， 圆外为蓝色
+ 
+    X = np.vstack(X).reshape(-1, 2)  # 改变形状，-1表示随零一维的变化而变化
+    Y_ = np.vstack(Y_).reshape(-1, 1)
+    return X, Y_, Y_c
+ 
+ 
+def get_batch_data(X, Y_):  # 得到Batch_size个数据的函数
+    start = random.sample(range(0, 299 - Batch_size), Batch_size)  # 在指定范围内随机生成Batch_size个数
+    batch_x = X[start, :]  # 得到数据
+    batch_y = Y_[start, :]  # 得到标签
+    return batch_x, batch_y
+ 
+ 
+def backward(X, Y_, Y_c):  # 反向传播函数
+    x = tf.placeholder(tf.float32, [None, fw.Input_size])  # 给输入数据占位，因为不知道一次要喂入多少组数据，所以用的None
+    y_ = tf.placeholder(tf.float32, [None, fw.Output_size])  # 给真实的标签占位
+    y = fw.forward(x, Regularizer)  # 前向传播计算得到的值
+ 
+    global_step = tf.Variable(0, trainable=False)
+ 
+    loss = tf.reduce_mean(tf.square(y_ - y))  # loss值，我们的目的就是让它变小
+    loss_total = loss + tf.add_n(tf.get_collection(&quot;losses&quot;))
+ 
+    learning_rate = tf.train.exponential_decay(
+        Learning_rate_base,
+        global_step,
+        300 / Batch_size,
+        Learning_rate_decay,
+        staircase=True
+    )
+    train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss_total)  # 反向传播，梯度下降法计算
+ 
+    ema = tf.train.ExponentialMovingAverage(Moving_average_decay, global_step)
+    ema_op = ema.apply(tf.trainable_variables())
+    with tf.control_dependencies([train_step, ema_op]):
+        train_op = tf.no_op(name=&quot;train&quot;)
+ 
+    with tf.Session() as sess:  # 初始化会话
+        init_op = tf.initialize_all_variables()  # 初始化所有参数
+        sess.run(init_op)  # 运行， 这两步是必须的
+ 
+        for step in range(Steps):  # 循环，在这里训练
+            train_x, train_y = get_batch_data(X, Y_)  # 得到批数据
+            sess.run(train_op, feed_dict={x: train_x, y_: train_y})  # 训练
+            if step % 2000 == 0:  # 每2000轮查看训练loss情况
+                train_loss = sess.run(loss_total, feed_dict={x: train_x, y_: train_y})
+                print(&quot;经过%d轮训练， 训练数据的loss值为：%f&quot; % (step, train_loss))
+ 
+        # 因为数据标签的值为0和1，那么区分是0还是1的界限为0.5
+        # 下面生成密集点阵喂入神经网络， 画出那些训练结果为0.5的等高线，展示神经网络的分类的界限
+        xx, yy = np.mgrid[-3:3:0.01, -3:3:0.01]
+        grid = np.c_[xx.ravel(), yy.ravel()]  # 密集的点阵
+        probs = sess.run(y, feed_dict={x: grid})
+        probs = probs.reshape(xx.shape)
+        plt.scatter(X[:, 0], X[:, 1], c=np.squeeze(Y_c))  # 原数据的情况
+        plt.contour(xx, yy, probs, [0.5])  # 画等高线
+        plt.show()
+ 
+ 
+if __name__ == &quot;__main__&quot;:
+    X, Y_, Y_c = generate_data()
+    backward(X, Y_, Y_c)
 </code></pre>
 
   </div>
@@ -388,7 +444,7 @@ with open(&quot;test.txt&quot;, &quot;a+&quot;, encoding=&quot;utf-8&quot;) as f
             <li><a class="article-category-link" href="https://X1angyang.github.io/categories/python">Python</a></li>
           
             
-            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB">爬虫</a></li>
+            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/tensorflow">tensorflow</a></li>
           
         </ul>
       </li>
@@ -411,10 +467,8 @@ with open(&quot;test.txt&quot;, &quot;a+&quot;, encoding=&quot;utf-8&quot;) as f
 </article>
 <div class="pagination">
   
-    <a href="/blog/ershoufang/" class="button big previous"><i class="fas fa-angle-left"></i> 爬取链家二手房信息</a>
+    <a href="/blog/r/" class="button big previous"><i class="fas fa-angle-left"></i> Tensorflow系列（一）</a>
   
-  
-    <a href="/blog/r/" class="button big next">Tensorflow系列（一） <i class="fas fa-angle-right"></i></a>
   
 </div>
 
