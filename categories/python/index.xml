@@ -6,10 +6,25 @@
     <description>Recent content in Python on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow在12306的失败记录</title>
+      <link>https://X1angyang.github.io/blog/tensorflow_12306/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/tensorflow_12306/</guid>
+      <description>最近想用tensorflow做点实际的东西，最后选取了12306的验证码的识别。网上有很多这种实战，但都是识别26个字母或者10个数字的小项目。当然，在csdn上也有一位博主说他用简单的cnn将12306的验证码识别准确率提升到了95%；相关网络结构和代码没有公布，在他的回答中，都说的是最简单的cnn处理的验证码和汉字。于是，我有了自己实践的念头。
+数据：
+一开始我是自己做的爬虫，爬取了大约10000张验证码。当时心里美滋滋的，但是随后的标记工作苦不堪言，我标记了大约100张就放弃了这个工作。在网上查的方法有人工打码，当然，这是要钱的，100张1元左右，让我心生退意。我不得已疯狂浏览相关博文，，，，最后终于下载了一万一千多张验证码和相应标签。  处理：
+在阅读csdn大神博主的博文后，我想当然的以为最简单的cnn必然有不错的效果，但是我尝试了很多次，修改了很多的网络结构，均以失败告终。正确率都在10%到20%左右。 我开始借鉴一些成熟的网络结构，首先是lenet5，一开始我没有改变图片的大小，自己先用一层卷积将输出大小变为lenet的输入大小，但是没有效果。不得已，我将图片直接转为32*32的大小，最后迭代20多万次，才有50%的正确率（100个分类）。这也是我最后的结果了。 我当然感到不满意，尝试使用alenet的网络结构，但是第一步就把我难住了，alenet的输入是227*227的，而我下载的数据才66*66，直接将图片变大肯定是不行的，我直接放弃了这个网络结构。（后来其它的分类项目中，证实alenet结构不是我这个垃圾PC能运行的）。所以，最后的结果也就50%多一点。  我不知道csdn大神是的网络结构是怎样的，只能说，他们真的很nb，
+唉，我还是个入门小白啊，，，，
+学到的东西吧： 1.自己的网络结构大多数是不成熟的，往往得不到很好的效果，这时候直接借鉴是不错的选择。 2.学习率衰减的问题。一开始我设置的基础学习率为0.0001，衰减率0.5，300轮更新一次，训练了几千轮后loss一直摆动，正确率也特别低。一直找不到原因，后来发现tensorflow中学习率最多就10负6次，然后就是0了，在之后的训练中，根本没有学习。 3.batch_size的大小设置。这个我一直不知道怎么设置合适的值，一开始没注意，一直是固定的。后来在找原因的时候，一个个查找相关参数的影响。网上说的是太小不好，太大也不好，只能一个个地试。然而还是硬件的问题，自己的电脑让我没心情去试验到底哪个数值比较好。 4.修改已知的网络结构。经典的网络结构往往是不适合自己的数据的，怎么修改成适合自己的成了最大的难题。在北京大学曹健老师的课件里也对lenet网络结构进行了修改以适应mnist的数据。但只是给出了修改的网络结构，没有具体的分析，我捯饬了很久也没找出其中的规律。我一开始自己修改的lenet结构在验证码数据的效果不是很好。我在想，经典的网络结构该怎么修改，这一定是有经验可循的；或者说，这本身就是一个金标准，不可动摇。  generate_tfrecord
+import tensorflow as tf from PIL import Image import os tfRecord_train = &amp;quot;./data/train1.tfrecords&amp;quot; image_train_path = &amp;quot;./data/data/&amp;quot; label_train_path = &amp;quot;./data/label.txt&amp;quot; file_dir = &amp;quot;C:/Users/Lenovo/Desktop/python/pachong_test/trian_12306/data/captcha&amp;quot; label_names = os.listdir(file_dir) # 生成tfrecords文件 def write_tfRecord(tfRecordName, image_path, label_path): # 新建一个writer writer = tf.python_io.TFRecordWriter(tfRecordName) num_pic = 0 f = open(label_path, &#39;r&#39;) contents = f.readlines() f.close() # 循环遍历每张图和标签 for content in contents: value = content.</description>
+    </item>
     
     <item>
       <title>Tensorflow系列（二）</title>
