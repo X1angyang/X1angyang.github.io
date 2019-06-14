@@ -3,20 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://X1angyang.github.io/categories/12306/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://X1angyang.github.io/blog/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://X1angyang.github.io/categories/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -32,7 +26,7 @@
   
   <url>
     <loc>https://X1angyang.github.io/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -44,6 +38,23 @@
                 hreflang="en"
                 href="https://X1angyang.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/blog/spider_conclusion/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/categories/12306/</loc>
+    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -96,12 +107,6 @@
   <url>
     <loc>https://X1angyang.github.io/blog/ershoufang/</loc>
     <lastmod>2019-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://X1angyang.github.io/categories/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2019-06-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
