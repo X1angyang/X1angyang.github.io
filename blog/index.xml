@@ -12,6 +12,25 @@
     
     
     <item>
+      <title> Is there a columnar cactus?</title>
+      <link>https://X1angyang.github.io/blog/columnar/</link>
+      <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/columnar/</guid>
+      <description>分类的数据，鉴定图片是否含有柱状仙人掌。
+数据来自：https://www.kaggle.com/c/aerial-cactus-identification/data
+网站给的数据图片都很规整，为32*32。图片大概是这样的： 仙人掌一 仙人掌二 无仙人掌
+大约能看到一条白色的细线，就是仙人掌了。图片大小比较小，也比较简单。我打算直接用全连接。
+全连接结构：
+ 500个节点 500个节点 2个输出节点  其它的和cat VS dog的参数一样。
+这样训练出来的测试集正确率大约为85%。
+然后我试了下卷积，
+因为是32 * 32的图片，我用的lenet5结构。然后再接上述的全连接，这样训练了大约80000轮，测试集正确率为91%。继续训练至16w轮正确率还是一样。
+我觉得可能是提取的特征不够，我将lenet5的卷积核的个数由5和16个改为32和64个，此时，训练大约4w轮就达到了91%的正确率，继续训练至7w轮正确率无变化。
+我认为是网络结构的学习度不够吧，想要继续提升，只能改变网络结构，更好的提取特征。</description>
+    </item>
+    
+    <item>
       <title>猫狗分类</title>
       <link>https://X1angyang.github.io/blog/dog_cat/</link>
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
