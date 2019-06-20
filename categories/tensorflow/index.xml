@@ -6,10 +6,40 @@
     <description>Recent content in tensorflow on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/categories/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>猫狗分类</title>
+      <link>https://X1angyang.github.io/blog/dog_cat/</link>
+      <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/blog/dog_cat/</guid>
+      <description>这次神经网络实践的数据来自：https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data
+训练数据中，只有猫和狗两种类别。图片共25000张，猫和狗分别12500张。图片都来自于真实场景，图片大小不一致，数据较为复杂。
+本来是有测试数据的，但是给的标签错了，所以我直接将训练数据分为测试数据（5000张），训练数据（20000张）
+自己的实践之路：
+之前的12306数据集让我明白，现成的经典网络结构比自己的好，所以我引用了alexnet。我将图片处理为227*227*3的大小，构建alexnet是神经网络，但是发现结果不是很好。
+我又在Kaggle的猫狗数据网站上找到了其他人的分享https://www.kaggle.com/jeffd23/catdognet-keras-convnet-starter/notebook，用的是自改的vgg16，实现方式是keras。一开始我认为我的电脑运算能力不足以计算如此深层的神经网络。抱着试一下的态度，我尝试用tensorflow复现：
+前向：
+输入图片大小：64*64*3
+所有卷积核大小为3*3
+所有池化核的大小为2*2
+均使用0填充
+训练：
+学习率：0.0001
+正则：0.0001
+batch size：16
+loss：交叉熵
+滑动平均
+RMS优化器
+vgg16是非常深的神经网络。该修改的版本也差不多。
+网络结构：
+ 3*3*32的卷积 3*3*32的卷积 2*2池化 3*3*64的卷积 3*3*64的卷积 2*2池化 3*3*128的卷积 3*3*128的卷积 2*2池化 3*3*256的卷积 3*3*256的卷积 2*2池化 256个节点的第一层全连接 256个节点的第二层全连接 2个节点的输出层  训练了18000轮，测试集85%的正确率，但是到了10000轮的时候就差不多稳定了。
+作者的留言里写道他的正确率大约为90%，而且作者训练的数据只有总共的8%，我对此是有些疑问的。</description>
+    </item>
     
     <item>
       <title>Tensorflow在12306的失败记录</title>

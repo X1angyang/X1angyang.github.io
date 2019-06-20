@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
   <meta charset="utf-8">
-<title>Tags - Life Is Fantastic</title>
-<meta name="description" content="Life Is Fantastic!">
+<title>猫狗分类 - Life Is Fantastic</title>
+<meta name="description" content="用tensorflow分类猫和狗">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -22,19 +22,28 @@
 
   <meta name="generator" content="Hugo 0.55.6" />
   
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="猫狗分类">
+<meta itemprop="description" content="用tensorflow分类猫和狗">
 
 
-  <meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://X1angyang.github.io/tags/" />
+<meta itemprop="datePublished" content="2019-06-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="38">
 
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="猫狗分类" />
+<meta property="og:description" content="用tensorflow分类猫和狗" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://X1angyang.github.io/blog/dog_cat/" />
+<meta property="article:published_time" content="2019-06-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-06-20T00:00:00&#43;00:00"/>
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="猫狗分类"/>
+<meta name="twitter:description" content="用tensorflow分类猫和狗"/>
 
   
 
@@ -63,7 +72,7 @@
       <a href="/">
         
           
-            Tags
+            Blog
           
         
       </a>
@@ -93,7 +102,12 @@
   <menu id="lang-menu" class="flyout-menu">
   <a href="#" lang="en" class="active"><span class="flag-icon flag-icon-en" alt="en"></span></a>
   
-        <a href="https://X1angyang.github.io/fr/tags/" lang="fr"><span class="flag-icon flag-icon-fr" alt="fr"></span></a>
+    
+      
+    
+      
+        <a href="/fr" lang="fr" class="no-lang"><span class="flag-icon flag-icon-fr" alt="fr"></span></a>
+      
     
   
 </menu>
@@ -165,8 +179,6 @@
     <footer>
       <ul class="social-icons">
         
-    <li><a href="/tags/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         <li><a href="//github.com/X1angyang" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
 
@@ -213,18 +225,188 @@
 </section>
 
       <main id="site-main">
-        
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/dog_cat/">猫狗分类</a></h2>
+    
+    
+        <p>用tensorflow分类猫和狗</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-06-20 00:00:00 &#43;0000 UTC">
+      June 20, 2019
+    </time>
+    <span class="author">Xiang.Y</span>
+    
+        <p>1 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=&amp;text=&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=&amp;title=" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=&amp;title=" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.stumbleupon.com/submit?url=&amp;title=" target="_blank" rel="noopener" class="share-btn stumbleupon">
+          <i class="fab fa-stumbleupon"></i><p>&nbsp;StumbleUpon</p>
+        </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=&amp;description=" target="_blank" rel="noopener" class="share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/dog_cat/" class="image featured">
+  <img src="/img/2019/06/cat_dog.jpg" alt="Pic 1">
+</a>
+
+
+  <div class="content">
+    <p>这次神经网络实践的数据来自：<a href="https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data">https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data</a></p>
+
+<p>训练数据中，只有猫和狗两种类别。图片共25000张，猫和狗分别12500张。图片都来自于真实场景，图片大小不一致，数据较为复杂。</p>
+
+<p>本来是有测试数据的，但是给的标签错了，所以我直接将训练数据分为测试数据（5000张），训练数据（20000张）</p>
+
+<p>自己的实践之路：</p>
+
+<p>之前的12306数据集让我明白，现成的经典网络结构比自己的好，所以我引用了alexnet。我将图片处理为227*227*3的大小，构建alexnet是神经网络，但是发现结果不是很好。</p>
+
+<p>我又在Kaggle的猫狗数据网站上找到了其他人的分享<a href="https://www.kaggle.com/jeffd23/catdognet-keras-convnet-starter/notebook，用的是自改的vgg16，实现方式是keras。一开始我认为我的电脑运算能力不足以计算如此深层的神经网络。抱着试一下的态度，我尝试用tensorflow复现：">https://www.kaggle.com/jeffd23/catdognet-keras-convnet-starter/notebook，用的是自改的vgg16，实现方式是keras。一开始我认为我的电脑运算能力不足以计算如此深层的神经网络。抱着试一下的态度，我尝试用tensorflow复现：</a></p>
+
+<p>前向：</p>
+
+<p>输入图片大小：64*64*3</p>
+
+<p>所有卷积核大小为3*3</p>
+
+<p>所有池化核的大小为2*2</p>
+
+<p>均使用0填充</p>
+
+<p>训练：</p>
+
+<p>学习率：0.0001</p>
+
+<p>正则：0.0001</p>
+
+<p>batch size：16</p>
+
+<p>loss：交叉熵</p>
+
+<p>滑动平均</p>
+
+<p>RMS优化器</p>
+
+<p>vgg16是非常深的神经网络。该修改的版本也差不多。</p>
+
+<p>网络结构：</p>
+
+<ol>
+<li>3*3*32的卷积</li>
+<li>3*3*32的卷积</li>
+<li>2*2池化</li>
+<li>3*3*64的卷积</li>
+<li>3*3*64的卷积</li>
+<li>2*2池化</li>
+<li>3*3*128的卷积</li>
+<li>3*3*128的卷积</li>
+<li>2*2池化</li>
+<li>3*3*256的卷积</li>
+<li>3*3*256的卷积</li>
+<li>2*2池化</li>
+<li>256个节点的第一层全连接</li>
+<li>256个节点的第二层全连接</li>
+<li>2个节点的输出层</li>
+</ol>
+
+<p>训练了18000轮，测试集85%的正确率，但是到了10000轮的时候就差不多稳定了。</p>
+
+<p>作者的留言里写道他的正确率大约为90%，而且作者训练的数据只有总共的8%，我对此是有些疑问的。</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
           
-        
-        <ul class="posts">
-          <header>
-            <h1>Tags</h1>
-          </header>
+            
+            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/tensorflow">tensorflow</a></li>
           
+            
+            <li><a class="article-category-link" href="https://X1angyang.github.io/categories/cat-and-dog">cat and dog</a></li>
           
         </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/spider_conclusion/" class="button big previous"><i class="fas fa-angle-left"></i> 爬虫总结</a>
+  
+  
+</div>
+
+
       </main>
-      
       <section id="site-sidebar">
   <section id="recent-posts">
     <header>
@@ -309,6 +491,44 @@
 
   
     
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/python/">python<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/tensorflow/">tensorflow<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/%E7%88%AC%E8%99%AB/">爬虫<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/12306/">12306<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cat-and-dog/">cat-and-dog<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
   
 
   <section id="mini-bio">
@@ -326,8 +546,6 @@
   
       <ul class="social-icons">
         
-    <li><a href="/tags/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         <li><a href="//github.com/X1angyang" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
 
