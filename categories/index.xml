@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Life Is Fantastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://X1angyang.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Histopathologic image</title>
+      <link>https://X1angyang.github.io/categories/histopathologic-image/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/categories/histopathologic-image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tensorflow</title>
+      <link>https://X1angyang.github.io/categories/tensorflow/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://X1angyang.github.io/categories/tensorflow/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cat and dog</title>
@@ -26,15 +44,6 @@
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://X1angyang.github.io/categories/columnar-cactus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tensorflow</title>
-      <link>https://X1angyang.github.io/categories/tensorflow/</link>
-      <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://X1angyang.github.io/categories/tensorflow/</guid>
       <description></description>
     </item>
     

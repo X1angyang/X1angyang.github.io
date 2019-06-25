@@ -3,19 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://X1angyang.github.io/blog/columnar/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <loc>https://X1angyang.github.io/blog/cancer/</loc>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://X1angyang.github.io/blog/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://X1angyang.github.io/categories/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -30,8 +30,14 @@
   </url>
   
   <url>
+    <loc>https://X1angyang.github.io/categories/histopathologic-image/</loc>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://X1angyang.github.io/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -46,6 +52,17 @@
   </url>
   
   <url>
+    <loc>https://X1angyang.github.io/categories/tensorflow/</loc>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://X1angyang.github.io/blog/columnar/</loc>
+    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://X1angyang.github.io/categories/cat-and-dog/</loc>
     <lastmod>2019-06-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -53,12 +70,6 @@
   
   <url>
     <loc>https://X1angyang.github.io/categories/columnar-cactus/</loc>
-    <lastmod>2019-06-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://X1angyang.github.io/categories/tensorflow/</loc>
     <lastmod>2019-06-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
